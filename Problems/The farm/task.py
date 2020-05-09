@@ -4,7 +4,7 @@ farm_animals = {"chicken": 23,
                 "goat": 678,
                 "pig": 1296,
                 "cow": 3848,
-                "sheep": 6768}
+                "sheep": 6769}
 chart = dict()
 tempA = 0  # Temporary number for amount of animals
 exp_animal = "None"  # Most expensive animal
