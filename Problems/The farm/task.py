@@ -23,7 +23,7 @@ def most_expensive(dic):
 
 last_animal = most_expensive(farm_animals)  # Output (animal, cost)
 
-# New Dict() with animal name and amount of animals can be bought
+# Creating new Dict() that has animals name and amount of animals can be bought
 for animal, cost in farm_animals.items():
     if money >= cost:  # Have enough money
         chart[animal] = money // cost
