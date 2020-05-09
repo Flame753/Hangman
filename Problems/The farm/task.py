@@ -1,5 +1,6 @@
 money = int(input())
 
+# Price of animals has to be low to high to work
 farm_animals = {"chicken": 23,
                 "goat": 678,
                 "pig": 1296,
