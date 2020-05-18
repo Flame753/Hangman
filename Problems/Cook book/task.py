@@ -9,7 +9,7 @@ def message(dish_name):
     return "You can make {}".format(dish_name)
 
 
-def string_to_list(string):
+def str_to_lis(string):
     return string.split(', ')
 
 
@@ -20,7 +20,18 @@ def check_ingredients(recipe, ingredient):
         return False
 
 
+ingred = input()
+cookbook = {'pasta': str_to_lis(pasta),
+            'apple_pie': str_to_lis(apple_pie),
+            'ratatouille': str_to_lis(ratatouille),
+            'chocolate_cake': str_to_lis(chocolate_cake),
+            'omelette': str_to_lis(omelette)}
+
+for dish_name, recipe in cookbook.items():
+
+
+print(cookbook)
 print(message('pasta'))
-print(string_to_list(pasta))
+print(str_to_lis(pasta))
 print(check_ingredients(pasta, "sal"))
-print(check_ingredients(string_to_list(pasta), "sat"))
+print(check_ingredients(str_to_lis(pasta), "sat"))
