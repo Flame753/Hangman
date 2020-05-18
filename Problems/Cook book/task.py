@@ -5,33 +5,23 @@ chocolate_cake = "chocolate, sugar, salt, flour, coffee, butter"
 omelette = "egg, milk, bacon, tomato, salt, pepper"
 
 
-def message(dish_name):
-    return "You can make {}".format(dish_name)
+def message(dish):
+    return "You can make {}".format(dish)
 
 
 def str_to_lis(string):
     return string.split(', ')
 
 
-def check_ingredients(recipe, ingredient):
-    if ingredient in recipe:
-        return True
-    else:
-        return False
-
-
-ingred = input()
+ingredient = input()
 cookbook = {'pasta': str_to_lis(pasta),
-            'apple_pie': str_to_lis(apple_pie),
+            'apple pie': str_to_lis(apple_pie),
             'ratatouille': str_to_lis(ratatouille),
-            'chocolate_cake': str_to_lis(chocolate_cake),
+            'chocolate cake': str_to_lis(chocolate_cake),
             'omelette': str_to_lis(omelette)}
 
-for dish_name, recipe in cookbook.items():
+for dish_name, recipe_list in cookbook.items():
+    if ingredient in recipe_list:
+        print(message(dish_name))
 
 
-print(cookbook)
-print(message('pasta'))
-print(str_to_lis(pasta))
-print(check_ingredients(pasta, "sal"))
-print(check_ingredients(str_to_lis(pasta), "sat"))
