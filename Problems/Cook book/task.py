@@ -5,10 +5,6 @@ chocolate_cake = "chocolate, sugar, salt, flour, coffee, butter"
 omelette = "egg, milk, bacon, tomato, salt, pepper"
 
 
-def message(dish):
-    return "You can make {}".format(dish)
-
-
 def str_to_lis(string):
     return string.split(', ')
 
@@ -22,6 +18,4 @@ cookbook = {'pasta': str_to_lis(pasta),
 
 for dish_name, recipe_list in cookbook.items():
     if ingredient in recipe_list:
-        print(message(dish_name))
-
-
+        print("You can make {}".format(dish_name))
