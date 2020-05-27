@@ -90,6 +90,29 @@ files:
     if __name__ == '__main__':
         CoffeeMachineTest('hangman.hangman').run_tests()
   learner_created: false
+- name: hangman/hangman.py
+  visible: true
+  text: |
+    import random
+
+
+    # Write your code here
+    def greeting():
+        print('H A N G M A N')
+
+
+    def guess():
+        world_lis = ['python', 'java', 'kotlin', 'javascript']
+        word = input("Guess the word: ")
+        if word == random.choice(world_lis):
+            print("You survived!")
+        else:
+            print("You are hanged!")
+
+
+    greeting()
+    guess()
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/69/stages/375/implement
 status: Unchecked
 record: -1
