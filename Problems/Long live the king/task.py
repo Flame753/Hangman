@@ -12,6 +12,7 @@ val5.extend(temp5)
 temp5 = [(y, 8) for y in range(2, 8)]
 val5.extend(temp5)
 
+
 if move in val3:
     print(3)
 elif move in val5:
