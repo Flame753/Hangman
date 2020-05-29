@@ -151,7 +151,12 @@ files:
                     )
 
             if '-' not in blocks[-1]:
-                catch[blocks[-1]] += 1
+                try:
+                    catch[blocks[-1]] += 1
+                except KeyError:
+                    return CheckResult.wrong("Your program is using a word '{0}'. "
+                                             "This word is not "
+                                             "on the list from the description".format(blocks[-1]))
 
             if attach == 'last':
                 if catch.values() == 0:

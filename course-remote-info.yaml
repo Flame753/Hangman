@@ -83,6 +83,8 @@ topics:
     theory_id: 6037
   - title: Basic string methods
     theory_id: 6842
+  - title: Search in a string
+    theory_id: 9558
   - title: PyCharm basics
     theory_id: 6193
   4:
