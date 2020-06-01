@@ -1,58 +1,27 @@
 import random
+print('H A N G M A N')
+word = random.choice(('python', 'java', 'kotlin', 'javascript'))
+hidden = "-" * (len(word))  # The hidden word on screen
+lives = 8
 
-
-def greeting():
-    print('H A N G M A N')
-
-
-# Outputs random word out of a define list
-def random_word():
-    word_lis = ['python', 'java', 'kotlin', 'javascript']
-    return random.choice(word_lis)
-
-
-def letter_in_word(word, guess_letters):
-    if guess_letters in word:
-        return True
-    else:
-        return False
-
-
-def main():
-    chosen_word = random_word()  # The word your guessing
-    life = 8
-    show_word = "-" * (len(chosen_word))  # The hidden word on screen
-    guessed_letters = set()
-    guess = ""  # user guess
-
-    while life > 0:  # if life runs out then death
+while lives > 0:
+    if hidden != word:
         print()
-        print(show_word)
-        if guess == chosen_word or show_word == chosen_word:  # if guessed word or all letter (win)
-            print("you guessed the word!")
-            print("You survived!")
-            break
-
-        guess = (input("Input a letter: "))
-        if guess in guessed_letters:  # if letter was repeated
-            print("No improvements")
-            life -= 1
-
-        elif letter_in_word(chosen_word, guess):  # if letter in word
-            for index, value in enumerate(chosen_word):
-                if value == guess:
-                    show_word = list(show_word)
-                    show_word[index] = guess
-                    show_word = "".join(show_word)
-
-        else:  # if letter not in word
+        print(hidden)
+        guess = str(input("Input a letter: "))
+        if guess not in word:
             print("No such letter in the word")
-            life -= 1
+            lives -= 1
+        if guess in hidden:
+            print("No improvements")
+            lives -= 1
+        for index in range(len(word)):
+            if guess == word[index]:
+                hidden = hidden[:index] + guess + hidden[index+1:]
+    else:
+        print("You guessed the word!")
+        print("You survived!")
+        break
+if lives == 0 and hidden != word:
+    print("You are hanged!")
 
-        guessed_letters.add(guess)
-    else:  # death
-        print("You are hanged!")
-
-
-greeting()
-main()
