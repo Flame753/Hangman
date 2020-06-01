@@ -19,8 +19,10 @@ def hint(word):
 
 def guess():
     chosen_word = random_word()
-    word = input(f"Guess the word {hint(chosen_word)}: ")
-    if word == chosen_word:
+    for rounds in range(8):
+        print(hint(chosen_word))
+        letter = input("Guess the word : ")
+    if letter == chosen_word:
         print("You survived!")
     else:
         print("You are hanged!")
