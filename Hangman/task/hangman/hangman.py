@@ -36,6 +36,7 @@ def main():
         guess = (input("Input a letter: "))
         if guess in guessed_letters:  # if letter was repeated
             print("No improvements")
+            life -= 1
 
         elif letter_in_word(chosen_word, guess):  # if letter in word
             for index, value in enumerate(chosen_word):
@@ -43,10 +44,9 @@ def main():
                     show_word = list(show_word)
                     show_word[index] = guess
                     show_word = "".join(show_word)
-            life -= 1
 
         else:  # if letter not in word
-            print("No such letter in the word")
+            print("No such letter in the word")
             life -= 1
 
         guessed_letters.add(guess)
