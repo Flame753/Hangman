@@ -3,6 +3,7 @@ import random
 
 def greeting():
     print('H A N G M A N')
+    print()
 
 
 # Outputs random word out of a def list
@@ -24,8 +25,9 @@ def main():
     show_word = "-" * (len(chosen_word))
 
     for rounds in range(life):
+        print()
         print(show_word)
-        letter = (input("Guess the word : "))
+        letter = (input("Input a letter: "))
         if letter_in_word(chosen_word, letter):
             for index, value in enumerate(chosen_word):
                 if value == letter:
@@ -34,6 +36,9 @@ def main():
                     show_word = "".join(show_word)
         else:
             print("No such letter in the word")
+    print()
+    print("Thanks for playing!")
+    print("We'll see how well you did in the next stage")
 
 
 greeting()
