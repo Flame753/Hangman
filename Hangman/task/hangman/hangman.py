@@ -3,10 +3,9 @@ import random
 
 def greeting():
     print('H A N G M A N')
-    print()
 
 
-# Outputs random word out of a def list
+# Outputs random word out of a define list
 def random_word():
     word_lis = ['python', 'java', 'kotlin', 'javascript']
     return random.choice(word_lis)
@@ -20,27 +19,40 @@ def letter_in_word(word, guess_letters):
 
 
 def main():
-    chosen_word = random_word()
+    chosen_word = random_word()  # The word your guessing
     life = 8
-    show_word = "-" * (len(chosen_word))
+    show_word = "-" * (len(chosen_word))  # The hidden word on screen
+    guessed_letters = set()
+    guess = ""  # user guess
 
-    for rounds in range(life):
+    while life > 0:  # if life runs out then death
         print()
         print(show_word)
-        letter = (input("Input a letter: "))
-        if letter_in_word(chosen_word, letter):
+        if guess == chosen_word or show_word == chosen_word:  # if guessed word or all letter (win)
+            print("you guessed the word!")
+            print("You survived!")
+            break
+
+        guess = (input("Input a letter: "))
+        if guess in guessed_letters:  # if letter was repeated
+            print("No improvements")
+
+        elif letter_in_word(chosen_word, guess):  # if letter in word
             for index, value in enumerate(chosen_word):
-                if value == letter:
+                if value == guess:
                     show_word = list(show_word)
-                    show_word[index] = letter
+                    show_word[index] = guess
                     show_word = "".join(show_word)
-        else:
+            life -= 1
+
+        else:  # if letter not in word
             print("No such letter in the word")
-    print()
-    print("Thanks for playing!")
-    print("We'll see how well you did in the next stage")
+            life -= 1
+
+        guessed_letters.add(guess)
+    else:  # death
+        print("You are hanged!")
 
 
 greeting()
 main()
-
