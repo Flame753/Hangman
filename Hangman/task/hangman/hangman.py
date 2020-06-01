@@ -46,7 +46,7 @@ def main():
                     show_word = "".join(show_word)
 
         else:  # if letter not in word
-            print("No such letter in the word")
+            print("No such letter in the word")
             life -= 1
 
         guessed_letters.add(guess)
